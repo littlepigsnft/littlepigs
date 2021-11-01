@@ -7,7 +7,7 @@ import WalletConnectProvider from '@walletconnect/web3-provider';
 import Logo from './assets/littlepigs_logo.svg';
 import Twitter from './assets/twitter.svg';
 import Discord from './assets/discord.svg';
-import Preview from './assets/MorePigs.gif';
+import Preview from './assets/Pigs_320x320.gif';
 
 const INITIAL_STATE = {
   address: '',
