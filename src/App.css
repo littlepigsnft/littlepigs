@@ -1,0 +1,62 @@
+#App {
+  background-color: #8eccc7;
+  background-image: url('./assets/home_background_super_wide.jpg');
+  background-position-x: center;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Minimum aspect ratio */
+@media (min-aspect-ratio: 2112/1080) {
+  #App {
+    background-size: 100% auto;
+  }
+}
+
+/* Maximum width for mobile image */
+@media (max-width: 400px) {
+  #App {
+    background-size: 100% auto;
+    background-image: url('./assets/home_background_mobile.jpg');
+  }
+}
+
+#Main-Logo {
+  margin: 20px 0px;
+  width: clamp(250px, 33%, 400px);
+}
+
+#Main-Preview {
+  margin-left: 50%;
+  height: 160px;
+  border: solid 4px white;
+  box-shadow: 10px -10px lightslategrey;
+}
+
+/* Maximum width for mobile image */
+@media (min-width: 1180px) {
+  #Main-Preview {
+    margin-left: 600px;
+  }
+}
+
+#Social-Container {
+  margin-bottom: 10px;
+}
+
+.social-btn {
+  display: inline-block;
+  margin: 0px 6px;
+  width: 36px;
+  height: 36px;
+  transition: 0.2s ease-in-out;
+}
+
+.social-btn:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
