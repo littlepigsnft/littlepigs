@@ -27,38 +27,6 @@
   display: flex;
 }
 
-/* Minimum aspect ratio */
-@media (max-width: 800px) {
-  #App-Content {
-    flex-direction: column-reverse;
-  }
-
-  #Preview-Image {
-    width: 240px !important;
-  }
-
-  #Main-Preview {
-    padding: 0px !important;
-    display: flex;
-    justify-content: center;
-  }
-
-  .app-btn {
-    width: 240px !important;
-    height: 24px !important;
-    font-size: 14px !important;
-    margin-top: 4px;
-  }
-}
-
-/* Minimum aspect ratio */
-@media (max-width: 400px) {
-  #App {
-    background-size: cover;
-    background-image: url('./assets/home_background_mobile.jpg');
-  }
-}
-
 #Social-Container {
   flex-basis: 50%;
   display: flex;
@@ -93,7 +61,7 @@
 
 .social-btn {
   text-decoration: none;
-  transition: 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
   background-color: rgb(247, 184, 201);
 }
 
@@ -114,4 +82,40 @@
 #Social-Counter {
   background-color: rgb(145, 206, 219);
   justify-content: center;
+}
+
+/* Minimum aspect ratio */
+@media (max-width: 800px) {
+  #App-Content {
+    flex-direction: column-reverse;
+  }
+
+  #Preview-Image {
+    width: 240px;
+  }
+
+  #Main-Preview {
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .app-btn {
+    width: 240px;
+    height: 24px;
+    font-size: 14px;
+    margin-top: 4px;
+  }
+}
+
+/* Minimum aspect ratio */
+@media (max-width: 400px) {
+  #App {
+    background-size: cover;
+    background-image: url('./assets/home_background_mobile.jpg');
+  }
+
+  .social-btn:hover {
+    transform: none;
+  }
 }
