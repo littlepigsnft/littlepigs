@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, createRef } from 'react';
 import './App.css';
 import Web3 from 'web3';
 import Web3Modal from 'web3modal';
@@ -18,6 +18,8 @@ const INITIAL_STATE = {
 };
 
 class App extends Component {
+  timerRef = createRef(null);
+
   constructor(props) {
     super(props);
     this.state = {
@@ -32,6 +34,10 @@ class App extends Component {
 
   async componentDidMount() {
     //await this.setup();
+    this._setRemaining();
+    setInterval(() => {
+      this._setRemaining();
+    }, 10000);
   }
 
   async componentWillUnmount() {
@@ -105,6 +111,27 @@ class App extends Component {
     this.setState({ ...INITIAL_STATE });
   };
 
+  _setRemaining = () => {
+    let days = 0;
+    let hours = 0;
+    let minutes = 0;
+
+    let delay = Date.now();
+    if (delay < 1638316800000) {
+      delay = (1638316800000 - delay) / 1000;
+      days = parseInt(delay / 86400);
+      delay -= days * 86400;
+      hours = parseInt(delay / 3600);
+      delay -= hours * 3600;
+      minutes = parseInt(delay / 60);
+    }
+    this.timerRef.current.innerHTML = `${days
+      .toString()
+      .padStart(2, '0')} DAYS ${hours
+      .toString()
+      .padStart(2, '0')} HOURS ${minutes.toString().padStart(2, '0')} OINKS`;
+  };
+
   render() {
     return (
       <div id="App">
@@ -129,7 +156,7 @@ class App extends Component {
               <img className="social-icon" alt="Twitter" src={Twitter} />
               <div className="social-text">GET DIRTY AT TWITTER</div>
             </a>
-            <div className="app-btn" id="Social-Counter">
+            <div className="app-btn" id="Social-Counter" ref={this.timerRef}>
               12 DAYS 00 HOURS 00 OINKS
             </div>
           </div>
