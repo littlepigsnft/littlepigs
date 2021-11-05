@@ -30,33 +30,63 @@
   width: clamp(250px, 33%, 400px);
 }
 
-#Main-Preview {
-  margin-left: 50%;
-  height: 160px;
-  border: solid 4px white;
-  box-shadow: 10px -10px lightslategrey;
+#App-Content {
+  width: 100%;
+  display: flex;
 }
 
-/* Maximum width for mobile image */
-@media (min-width: 1180px) {
-  #Main-Preview {
-    margin-left: 600px;
-  }
+#Main-Preview {
+  flex-basis: 50%;
+  padding-left: 10%;
 }
 
 #Social-Container {
-  margin-bottom: 10px;
+  flex-basis: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#Preview-Image {
+  border: solid 4px white;
+}
+
+.app-btn {
+  display: flex;
+  align-items: center;
+  width: 280px;
+  height: 28px;
+  text-align: center;
+  font-size: 16px;
+  color: black;
+  font-weight: bold;
+  border: 2px solid black;
+  border-radius: 8px;
+  padding: 4px;
 }
 
 .social-btn {
-  display: inline-block;
-  margin: 0px 6px;
-  width: 36px;
-  height: 36px;
+  text-decoration: none;
   transition: 0.2s ease-in-out;
+  background-color: rgb(247, 184, 201);
 }
 
 .social-btn:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
   cursor: pointer;
+}
+
+.social-icon {
+  width: 28px;
+  height: 28px;
+}
+
+.social-text {
+  flex-grow: 1;
+}
+
+#Social-Counter {
+  background-color: rgb(145, 206, 219);
+  justify-content: center;
 }

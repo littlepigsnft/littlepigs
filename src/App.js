@@ -109,29 +109,36 @@ class App extends Component {
     return (
       <div id="App">
         <img id="Main-Logo" alt="Little Pigs" src={Logo}></img>
-        <div id="Social-Container">
-          <a
-            className="social-btn"
-            target="_blank"
-            rel="noreferrer"
-            href="http://discord.gg/3bMSc9gwHQ"
-          >
-            <img alt="Discord" src={Discord}></img>
-          </a>
-          <a
-            className="social-btn"
-            target="_blank"
-            rel="noreferrer"
-            href="https://twitter.com/LittlePigsNFT"
-          >
-            <img alt="Twitter" src={Twitter}></img>
-          </a>
-        </div>
-        <div id="Main-Preview">
-          <img alt="Preview" src={Preview} width="160px"></img>
+        <div id="App-Content">
+          <div id="Social-Container">
+            <a
+              className="app-btn social-btn"
+              target="_blank"
+              rel="noreferrer"
+              href="http://discord.gg/3bMSc9gwHQ"
+            >
+              <img className="social-icon" alt="Discord" src={Discord} />
+              <div className="social-text">GO HOG-WILD ON DISCORD</div>
+            </a>
+            <a
+              className="app-btn social-btn"
+              target="_blank"
+              rel="noreferrer"
+              href="https://twitter.com/LittlePigsNFT"
+            >
+              <img className="social-icon" alt="Twitter" src={Twitter} />
+              <div className="social-text">GET DIRTY AT TWITTER</div>
+            </a>
+            <div className="app-btn" id="Social-Counter">
+              12 DAYS 00 HOURS 00 OINKS
+            </div>
+          </div>
+          <div id="Main-Preview">
+            <img id="Preview-Image" alt="Preview" src={Preview} />
+          </div>
         </div>
       </div>
-     );
+    );
   }
 }
 
