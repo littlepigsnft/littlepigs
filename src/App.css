@@ -17,14 +17,6 @@
   }
 }
 
-/* Maximum width for mobile image */
-@media (max-width: 400px) {
-  #App {
-    background-size: 100% auto;
-    background-image: url('./assets/home_background_mobile.jpg');
-  }
-}
-
 #Main-Logo {
   margin: 20px 0px;
   width: clamp(250px, 33%, 400px);
@@ -35,9 +27,36 @@
   display: flex;
 }
 
-#Main-Preview {
-  flex-basis: 50%;
-  padding-left: 10%;
+/* Minimum aspect ratio */
+@media (max-width: 800px) {
+  #App-Content {
+    flex-direction: column-reverse;
+  }
+
+  #Preview-Image {
+    width: 240px !important;
+  }
+
+  #Main-Preview {
+    padding: 0px !important;
+    display: flex;
+    justify-content: center;
+  }
+
+  .app-btn {
+    width: 240px !important;
+    height: 24px !important;
+    font-size: 14px !important;
+    margin-top: 4px;
+  }
+}
+
+/* Minimum aspect ratio */
+@media (max-width: 400px) {
+  #App {
+    background-size: cover;
+    background-image: url('./assets/home_background_mobile.jpg');
+  }
 }
 
 #Social-Container {
@@ -48,7 +67,13 @@
   justify-content: space-evenly;
 }
 
+#Main-Preview {
+  flex-basis: 50%;
+  padding-left: 10%;
+}
+
 #Preview-Image {
+  width: 320px;
   border: solid 4px white;
 }
 
