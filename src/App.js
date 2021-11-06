@@ -8,6 +8,9 @@ import Logo from './assets/littlepigs_logo.svg';
 import Twitter from './assets/twitter.svg';
 import Discord from './assets/discord.svg';
 import Preview from './assets/Pigs_320x320.gif';
+import ImagePage1 from './assets/page1.png';
+import ImagePage2 from './assets/page2.png';
+import ImagePage3 from './assets/rarities_image.jpg';
 
 const INITIAL_STATE = {
   address: '',
@@ -125,46 +128,129 @@ class App extends Component {
       delay -= hours * 3600;
       minutes = parseInt(delay / 60);
     }
-    this.timerRef.current.innerHTML = `${days
-      .toString()
-      .padStart(2, '0')} DAYS ${hours
-      .toString()
-      .padStart(2, '0')} HOURS ${minutes.toString().padStart(2, '0')} OINKS`;
+    if (this.timerRef?.current)
+      this.timerRef.current.innerHTML = `${days
+        .toString()
+        .padStart(2, '0')} DAYS ${hours
+        .toString()
+        .padStart(2, '0')} HOURS ${minutes.toString().padStart(2, '0')} OINKS`;
   };
 
   render() {
     return (
-      <div id="App">
-        <img id="Main-Logo" alt="Little Pigs" src={Logo}></img>
-        <div id="App-Content">
-          <div id="Social-Container">
-            <a
-              className="app-btn social-btn"
-              target="_blank"
-              rel="noreferrer"
-              href="http://discord.gg/3bMSc9gwHQ"
-            >
-              <img className="social-icon" alt="Discord" src={Discord} />
-              <div className="social-text">GO HOG-WILD ON DISCORD</div>
-            </a>
-            <a
-              className="app-btn social-btn"
-              target="_blank"
-              rel="noreferrer"
-              href="https://twitter.com/LittlePigsNFT"
-            >
-              <img className="social-icon" alt="Twitter" src={Twitter} />
-              <div className="social-text">GET DIRTY AT TWITTER</div>
-            </a>
-            <div className="app-btn" id="Social-Counter" ref={this.timerRef}>
-              12 DAYS 00 HOURS 00 OINKS
+      <>
+        <div id="App">
+          <img id="Main-Logo" alt="Little Pigs" src={Logo}></img>
+          <div id="App-Content">
+            <div id="Social-Container">
+              <a
+                className="app-btn social-btn"
+                target="_blank"
+                rel="noreferrer"
+                href="http://discord.gg/3bMSc9gwHQ"
+              >
+                <img className="social-icon" alt="Discord" src={Discord} />
+                <div className="social-text">GO HOG-WILD ON DISCORD</div>
+              </a>
+              <a
+                className="app-btn social-btn"
+                target="_blank"
+                rel="noreferrer"
+                href="https://twitter.com/LittlePigsNFT"
+              >
+                <img className="social-icon" alt="Twitter" src={Twitter} />
+                <div className="social-text">GET DIRTY AT TWITTER</div>
+              </a>
+              <div className="app-btn" id="Social-Counter" ref={this.timerRef}>
+                12 DAYS 00 HOURS 00 OINKS
+              </div>
+            </div>
+            <div id="Main-Preview">
+              <img id="Preview-Image" alt="Preview" src={Preview} />
             </div>
           </div>
-          <div id="Main-Preview">
-            <img id="Preview-Image" alt="Preview" src={Preview} />
+        </div>
+        <div className="page" id="Page1">
+          <div className="flex-half-image">
+            <img alt="Porky" src={ImagePage1} width="280px" />
+          </div>
+          <div className="flex-half-text">
+            <p className="header">Once Upon a Time …</p>
+            <p className="normal">
+              Following their bestseller, The Three Pigs spent some time in the
+              limelight. They brought a ton of cash back to Pigsville and the
+              economy ramped up. Hoove’s Hookers, Ham’s Diner, and other such
+              fine establishments began to take off.
+            </p>
+            <p className="normal">
+              The Little Pigs of Pigsville were finally able to afford daily
+              necessities like clothing and cocaine. They took a liking to this
+              new-found money.
+            </p>
+            <p className="last">
+              They bought swaggy t-shirts and sailor caps; cigars and fancy
+              contact lens’ too
+            </p>
+          </div>
+          <div id="Page1-2" />
+        </div>
+        <div className="page page-even" id="Page2">
+          <div className="flex-half-text">
+            <p className="header font-32">In Pigsville - a place for pigs</p>
+            <p className="normal">
+              For those unfamiliar, Pigsville’s population is 10,000.
+            </p>
+            <p className="normal">
+              The road into Pigsville is currently under construction. We’ll be
+              able to access the town for visitation beginning December 1st,
+              2021. Should you adopt a pig, you’re welcome to stay.
+            </p>
+            <p className="last">
+              Otherwise visitation visas to the general public will be capped at
+              30 days.
+            </p>
+          </div>
+          <div className="flex-half-image">
+            <img alt="Porky" src={ImagePage2} width="280px" />
           </div>
         </div>
-      </div>
+        <div className="page" id="Page3">
+          <div className="flex-half-image">
+            <img alt="Porky" src={ImagePage3} width="280px" />
+          </div>
+          <div className="flex-half-text">
+            <p className="header">Rare piglets</p>
+            <p className="normal">
+              COMMON&nbsp;PIGLET&nbsp;TRAITS:
+              10&nbsp;VARIANTS&nbsp;UP&nbsp;TO&nbsp;80% <br />
+              <span className="thin">
+                Striped / mohawk / lazer eyes / and much more
+              </span>
+            </p>
+            <p className="normal">
+              POSH&nbsp;PIG&nbsp;TRAITS:
+              10&nbsp;VARIANTS&nbsp;UP&nbsp;TO&nbsp;70% <br />
+              <span className="thin">
+                Striped / mohawk / lazer eyes / and much more
+              </span>
+            </p>
+            <p className="normal">
+              PORK&nbsp;CHAD&nbsp;TRAITS:
+              10&nbsp;VARIANTS&nbsp;UP&nbsp;TO&nbsp;40% <br />
+              <span className="thin">
+                Striped / mohawk / lazer eyes / and much more
+              </span>
+            </p>
+            <p className="last">
+              FLYING&nbsp;PIG&nbsp;TRAITS:
+              10&nbsp;VARIANTS&nbsp;UP&nbsp;TO&nbsp;20% <br />
+              <span className="thin">
+                Striped / mohawk / lazer eyes / and much more
+              </span>
+            </p>
+          </div>
+        </div>
+      </>
     );
   }
 }

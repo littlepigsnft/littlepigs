@@ -119,3 +119,83 @@
     transform: none;
   }
 }
+
+.page {
+  padding: 32px 5% 16px 5%;
+  display: flex;
+}
+
+/* Minimum aspect ratio */
+@media (max-width: 800px) {
+  .page {
+    flex-direction: column;
+  }
+  .page-even {
+    flex-direction: column-reverse;
+  }
+}
+
+.flex-half-text {
+  flex-basis: 60%;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.flex-half-image {
+  flex-basis: 40%;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-half-text p.header {
+  margin: 0px;
+  font-size: 40px;
+  letter-spacing: -2px;
+  font-family: 'chantal';
+}
+
+.flex-half-text p.normal {
+  font-weight: bolder;
+}
+
+.flex-half-text p.last {
+  font-weight: bolder;
+  margin-bottom: 0px;
+}
+
+.flex-half-text span.thin {
+  font-weight: normal;
+  font-size: 14px;
+}
+
+.font-32 {
+  font-size: 32px !important;
+}
+
+#Page1 {
+  background-color: blanchedalmond;
+  padding-bottom: 12vw;
+  position: relative;
+}
+
+#Page1-2 {
+  position: absolute;
+  bottom: -7vw;
+  background-image: url('./assets/collection.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  width: 90%;
+  height: 14vw;
+}
+
+#Page2 {
+  padding-top: 12vw;
+  background-color: rgb(196, 173, 153);
+}
+
+#Page3 {
+  background-color: rgb(139, 203, 214);
+}
