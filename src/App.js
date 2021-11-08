@@ -11,6 +11,11 @@ import Preview from './assets/Pigs_320x320.gif';
 import ImagePage1 from './assets/page1.png';
 import ImagePage2 from './assets/page2.png';
 import ImagePage3 from './assets/rarities_image.jpg';
+import ImageTeam1 from './assets/team1.png';
+import ImageTeam2 from './assets/team2.png';
+import ImageTeam3 from './assets/team3.png';
+import ImageTeam4 from './assets/team4.png';
+import ImageTeam5 from './assets/team5.png';
 
 const INITIAL_STATE = {
   address: '',
@@ -249,6 +254,88 @@ class App extends Component {
               </span>
             </p>
           </div>
+        </div>
+        <div className="page" id="Page4">
+          <p className="title">Team Swill</p>
+          <div id="Bio-Container">
+            <div className="bio">
+              <img alt="Team" src={ImageTeam1} />
+              <p className="header">Chrispy</p>
+              <p className="normal">
+                -Product Development
+                <br />
+                -Venture Capitalist
+                <br />
+                -Self-proclaimed professional NFT collector
+              </p>
+            </div>
+            <div className="bio">
+              <img alt="Team" src={ImageTeam2} />
+              <p className="header">Schlomo</p>
+              <p className="normal">
+                -Artist & Designer
+                <br />
+                -10+ years as art director + creative director working on some
+                of the world’s top brands
+                <br />
+                -Likes the pigs
+              </p>
+            </div>
+            <div className="bio">
+              <img alt="Team" src={ImageTeam3} />
+              <p className="header">Peak3d</p>
+              <p className="normal">
+                - Full Stack Dev
+                <br />
+                - 25+ years development experience
+                <br />- Admires good artists
+              </p>
+            </div>
+            <div className="bio">
+              <img alt="Team" src={ImageTeam4} />
+              <p className="header">DxVert</p>
+              <p className="normal">
+                - Startup advisor and incubator
+                <br />
+                - 25 years in DESIGN & development
+                <br />- Crypto nut 5 years and still solvent
+              </p>
+            </div>
+            <div className="bio">
+              <img alt="Team" src={ImageTeam5} />
+              <p className="header">BigPig</p>
+              <p className="normal">
+                - Public Relations
+                <br />
+                - E-commerce/retail arbitrage specialist
+                <br />- !oink
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="page" id="Page5">
+          <img id="Main-Logo" alt="Little Pigs" src={Logo}></img>
+          <div id="Page5-Buttons">
+            <a
+              className="app-btn social-btn"
+              target="_blank"
+              rel="noreferrer"
+              href="http://discord.gg/3bMSc9gwHQ"
+            >
+              <img className="social-icon" alt="Discord" src={Discord} />
+              <div className="social-text">GO HOG-WILD ON DISCORD</div>
+            </a>
+            <a
+              className="app-btn social-btn"
+              target="_blank"
+              rel="noreferrer"
+              href="https://twitter.com/LittlePigsNFT"
+            >
+              <img className="social-icon" alt="Twitter" src={Twitter} />
+              <div className="social-text">GET DIRTY AT TWITTER</div>
+            </a>
+          </div>
+          <span>COPYRIGHT ALL RIGHTS RESERVED LITTLEPIGS.IO 2021</span>
         </div>
       </>
     );

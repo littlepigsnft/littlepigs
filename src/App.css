@@ -42,6 +42,7 @@
 
 #Preview-Image {
   width: 320px;
+  height: 320px;
   border: solid 4px white;
 }
 
@@ -57,6 +58,7 @@
   border: 2px solid black;
   border-radius: 8px;
   padding: 4px;
+  margin: 0px 8px;
 }
 
 .social-btn {
@@ -92,6 +94,7 @@
 
   #Preview-Image {
     width: 240px;
+    height: 240px;
   }
 
   #Main-Preview {
@@ -109,7 +112,7 @@
 }
 
 /* Minimum aspect ratio */
-@media (max-width: 400px) {
+@media (max-width: 480px) {
   #App {
     background-size: cover;
     background-image: url('./assets/home_background_mobile.jpg');
@@ -147,11 +150,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 5px;
 }
 
 .flex-half-text p.header {
   margin: 0px;
-  font-size: 40px;
+  font-size: 36px;
   letter-spacing: -2px;
   font-family: 'chantal';
 }
@@ -198,4 +202,71 @@
 
 #Page3 {
   background-color: rgb(139, 203, 214);
+}
+
+#Page4 {
+  background-color: rgb(40, 54, 82);
+  flex-direction: column;
+}
+
+#Page4 p.title {
+  text-align: center;
+  margin: 0px 0px 10px 0px;
+  font-size: 40px;
+  letter-spacing: -2px;
+  font-family: 'chantal';
+  color: white;
+  width: 100%;
+}
+
+#Bio-Container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#Bio-Container .bio {
+  background-color: rgb(139, 203, 214);
+  width: 220px;
+  text-align: center;
+  padding-top: 10px;
+  margin: 8px 5px 0px 5px;
+}
+
+#Bio-Container .bio img {
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#Bio-Container .bio p.header {
+  font-family: 'chantal';
+  font-size: 30px;
+  letter-spacing: -2px;
+  margin: 0px;
+}
+
+#Bio-Container .bio p.normal {
+  margin: 6px 0px;
+  font-size: 12px;
+  font-weight: bolder;
+}
+
+#Page5 {
+  padding-top: 0px;
+  background-color: rgb(131, 117, 171);
+  flex-direction: column;
+  align-items: center;
+}
+
+#Page5-Buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#Page5 span {
+  padding-top: 10px;
+  font-size: 12px;
+  color: white;
 }
