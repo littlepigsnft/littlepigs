@@ -226,32 +226,26 @@ class App extends Component {
           <div className="flex-half-text">
             <p className="header">Rare piglets</p>
             <p className="normal">
-              COMMON&nbsp;PIGLET&nbsp;TRAITS:
-              10&nbsp;VARIANTS&nbsp;UP&nbsp;TO&nbsp;80% <br />
-              <span className="thin">
-                Striped / mohawk / lazer eyes / and much more
-              </span>
+              Little Pigs aren’t your average pork bois. If you own one, you own
+              a piece of history. And that’s rare. That being said… some are
+              more special & rare than others. But don’t tell them that. They’re
+              all special in their own way! Except the ones that aren’t. Got it?
             </p>
             <p className="normal">
-              POSH&nbsp;PIG&nbsp;TRAITS:
-              10&nbsp;VARIANTS&nbsp;UP&nbsp;TO&nbsp;70% <br />
-              <span className="thin">
-                Striped / mohawk / lazer eyes / and much more
-              </span>
+              Every pig is comprised of skin, body, face, head, and earring
+              traits—with millions of possible unique combinations. Their traits
+              are programmed in a way that makes them them common, uncommon,
+              rare, or super rare. No two piggies are exactly alike.
             </p>
             <p className="normal">
-              PORK&nbsp;CHAD&nbsp;TRAITS:
-              10&nbsp;VARIANTS&nbsp;UP&nbsp;TO&nbsp;40% <br />
-              <span className="thin">
-                Striped / mohawk / lazer eyes / and much more
-              </span>
+              And just when you think you’ve got it figured out. BAM! We throw
+              in some Special Edition Little Pigs™—a drove of hogs that are all
+              1/1. These are the kings of the pen, sharing no traits with any of
+              the other pigs.
             </p>
             <p className="last">
-              FLYING&nbsp;PIG&nbsp;TRAITS:
-              10&nbsp;VARIANTS&nbsp;UP&nbsp;TO&nbsp;20% <br />
-              <span className="thin">
-                Striped / mohawk / lazer eyes / and much more
-              </span>
+              The Little Pigs are swine with swag. Pigs with polish. Haute hogs.
+              Do not sleep on the pigs, or we’ll blow your house down.
             </p>
           </div>
         </div>
@@ -311,6 +305,53 @@ class App extends Component {
                 <br />- !oink
               </p>
             </div>
+          </div>
+        </div>
+        <div className="page" id="PageFaq">
+          <p className="title">Pork Faqs</p>
+          <div className="faq-container">
+            <span className="header">
+              When can I get a pig and move into Pigsville?
+            </span>
+            <p>
+              Presale for Littlepigs and their access to Pigsville is on the 1st
+              december - check discord for whitelist announcements - Public sale
+              date TBC.
+            </p>
+            <span className="header">
+              Where can i talk with my fellow porkaneers?
+            </span>
+            <p>
+              All of the pigs gather at the local pigsville townhall called
+              Discord. Get an invite won'tya! - We have giveaways, whitelistings
+              and general swill to partake in. Also Twitter - let yourselves be
+              known and support the build of Pigsville into a thriving
+              porkopolis!
+            </p>
+            <span className="header">Do pigs wear clothes?</span>
+            <p>
+              Pah! Of course these pigs do - Fresh off their book royalties they
+              have cash and crypto to spare. The pigs have swag and you can
+              purchase some little pigs once we get 25% of these babes a home in
+              Pigsville.
+            </p>
+          </div>
+          <div className="faq-container">
+            <span className="header">What is the road to bacon?</span>
+            <p>
+              Dont be fraid - in this case bacon = cheese = cash. The little
+              pigs are a store of value with a roadmap to match. They got
+              tricks, and their tricks got tricks. We'll announce upcoming plans
+              and partnerships as we get nearer to the sale date. Get thee to
+              the townhall for latest updates.
+            </p>
+            <span className="header">Dont Blow this!</span>
+            <p>
+              Blowing it is strictly frowned upon - in fact all pigs no longer
+              have this in their vocab. They just know WAGMI and IGMI, and that
+              big bad wolf is done for. In fact there's rumours he's on the "if
+              you can't beat them join them" train. Stay tuned!!
+            </p>
           </div>
         </div>
         <div className="page" id="Page5">

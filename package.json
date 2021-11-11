@@ -1,5 +1,6 @@
 {
-  "name": "chainport",
+  "name": "littlepigs",
+  "homepage": "https://littlepigs.io",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
