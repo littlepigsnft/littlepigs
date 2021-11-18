@@ -3,11 +3,12 @@ import './App.css';
 import Web3 from 'web3';
 import Web3Modal from 'web3modal';
 import WalletConnectProvider from '@walletconnect/web3-provider';
+import Navbar from './components/navbar/navbar';
 
 import Logo from './assets/littlepigs_logo.svg';
 import Twitter from './assets/twitter.svg';
 import Discord from './assets/discord.svg';
-import Preview from './assets/Pigs_320x320.gif';
+import Preview from './assets/PIGS_320x320.gif';
 import ImagePage1 from './assets/page1.png';
 import ImagePage2 from './assets/page2.png';
 import ImagePage3 from './assets/rarities_image.jpg';
@@ -144,28 +145,15 @@ class App extends Component {
   render() {
     return (
       <>
-        <div id="App">
-          <img id="Main-Logo" alt="Little Pigs" src={Logo}></img>
-          <div id="App-Content">
+        <div id="Home">
+          <Navbar />
+          <div id="Home-Content">
             <div id="Social-Container">
-              <a
-                className="app-btn social-btn"
-                target="_blank"
-                rel="noreferrer"
-                href="http://discord.gg/3bMSc9gwHQ"
-              >
-                <img className="social-icon" alt="Discord" src={Discord} />
-                <div className="social-text">GO HOG-WILD ON DISCORD</div>
-              </a>
-              <a
-                className="app-btn social-btn"
-                target="_blank"
-                rel="noreferrer"
-                href="https://twitter.com/LittlePigsNFT"
-              >
-                <img className="social-icon" alt="Twitter" src={Twitter} />
-                <div className="social-text">GET DIRTY AT TWITTER</div>
-              </a>
+              <p className="header">Meet the Little Pigs</p>
+              <p className="last">
+                10,000 porkers from Pigsville ready to blow the ETH blockchain
+                down.
+              </p>
               <div className="app-btn" id="Social-Counter" ref={this.timerRef}>
                 12 DAYS 00 HOURS 00 OINKS
               </div>
@@ -175,7 +163,7 @@ class App extends Component {
             </div>
           </div>
         </div>
-        <div className="page" id="Page1">
+        <div className="page" id="About">
           <div className="flex-half-image">
             <img alt="Porky" src={ImagePage1} width="280px" />
           </div>
@@ -199,7 +187,7 @@ class App extends Component {
           </div>
           <div id="Page1-2" />
         </div>
-        <div className="page page-even" id="Page2">
+        <div className="page page-even" id="Pigsville">
           <div className="flex-half-text">
             <p className="header font-32">In Pigsville - a place for pigs</p>
             <p className="normal">
@@ -219,7 +207,7 @@ class App extends Component {
             <img alt="Porky" src={ImagePage2} width="280px" />
           </div>
         </div>
-        <div className="page" id="Page3">
+        <div className="page" id="Rarity">
           <div className="flex-half-image">
             <img alt="Porky" src={ImagePage3} width="280px" />
           </div>
@@ -239,9 +227,9 @@ class App extends Component {
             </p>
             <p className="normal">
               And just when you think you’ve got it figured out. BAM! We throw
-              in some Special Edition Little Pigs™—a drove of hogs that are all
-              1/1. These are the kings of the pen, sharing no traits with any of
-              the other pigs.
+              in some Special Edition Little Pigs™ — a drove of hogs that are
+              all 1/1. These are the kings of the pen, sharing no traits with
+              any of the other pigs.
             </p>
             <p className="last">
               The Little Pigs are swine with swag. Pigs with polish. Haute hogs.
@@ -249,7 +237,7 @@ class App extends Component {
             </p>
           </div>
         </div>
-        <div className="page" id="Page4">
+        <div className="page" id="Team">
           <p className="title">Team Swill</p>
           <div id="Bio-Container">
             <div className="bio">
@@ -307,11 +295,11 @@ class App extends Component {
             </div>
           </div>
         </div>
-        <div className="page" id="PageFaq">
-          <p className="title">Pork Faqs</p>
+        <div className="page" id="FAQ">
+          <p className="title">Pork FAQs</p>
           <div className="faq-container">
             <span className="header">
-              HOW MANY LITTLE PIGS CAN LIVE IN PIGSVILLE?
+              How many Littlepigs can live in Pigsville?
             </span>
             <p>
               The Three Little Pigs quickly gained notoriety from their best
@@ -354,7 +342,7 @@ class App extends Component {
               and partnerships as we get nearer to the sale date. Get thee to
               the townhall for latest updates.
             </p>
-            <span className="header">Dont Blow this!</span>
+            <span className="header">Dont blow this!</span>
             <p>
               Blowing it is strictly frowned upon - in fact all pigs no longer
               have this in their vocab. They just know WAGMI and IGMI, and that

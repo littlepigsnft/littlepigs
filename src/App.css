@@ -1,4 +1,9 @@
-#App {
+html {
+  scroll-padding-top: 70px;
+  scroll-behavior: smooth;
+}
+
+#Home {
   background-color: #8eccc7;
   background-image: url('./assets/home_background_super_wide.jpg');
   background-position-x: center;
@@ -12,8 +17,8 @@
 
 /* Minimum aspect ratio */
 @media (min-aspect-ratio: 2112/1080) {
-  #App {
-    background-size: 100% auto;
+  #Home {
+    background-size: cover;
   }
 }
 
@@ -22,7 +27,7 @@
   width: clamp(250px, 33%, 400px);
 }
 
-#App-Content {
+#Home-Content {
   width: 100%;
   display: flex;
 }
@@ -32,7 +37,21 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
+  padding: 0px 8px;
+}
+
+#Social-Container p.header {
+  font-size: 42px;
+  font-weight: 700;
+  font-family: 'Gochi Hand';
+  margin: 10px 0px 0px 0px;
+}
+
+#Social-Container p.last {
+  font-weight: bolder;
+  margin: 0px 0px 10px 0px;
+  text-align: center;
 }
 
 #Main-Preview {
@@ -88,7 +107,7 @@
 
 /* Minimum aspect ratio */
 @media (max-width: 800px) {
-  #App-Content {
+  #Home-Content {
     flex-direction: column-reverse;
   }
 
@@ -113,7 +132,7 @@
 
 /* Minimum aspect ratio */
 @media (max-width: 480px) {
-  #App {
+  #Home {
     background-size: cover;
     background-image: url('./assets/home_background_mobile.jpg');
   }
@@ -141,7 +160,7 @@
 .flex-half-text {
   flex-basis: 60%;
   flex-grow: 1;
-  text-align: center;
+  text-align: initial;
 }
 
 .flex-half-image {
@@ -153,11 +172,14 @@
   margin-bottom: 5px;
 }
 
+.flex-half-image img {
+  box-shadow: 4px 4px 6px 2px gray;
+}
+
 .flex-half-text p.header {
   margin: 0px;
   font-size: 36px;
-  letter-spacing: -2px;
-  font-family: 'chantal';
+  font-family: 'Gochi Hand';
 }
 
 .flex-half-text p.normal {
@@ -178,7 +200,7 @@
   font-size: 32px !important;
 }
 
-#Page1 {
+#About {
   background-color: blanchedalmond;
   padding-bottom: 12vw;
   position: relative;
@@ -195,26 +217,25 @@
   height: 14vw;
 }
 
-#Page2 {
+#Pigsville {
   padding-top: 12vw;
   background-color: rgb(196, 173, 153);
 }
 
-#Page3 {
+#Rarity {
   background-color: rgb(139, 203, 214);
 }
 
-#Page4 {
+#Team {
   background-color: rgb(40, 54, 82);
   flex-direction: column;
 }
 
-#Page4 p.title {
+#Team p.title {
   text-align: center;
   margin: 0px 0px 10px 0px;
   font-size: 40px;
-  letter-spacing: -2px;
-  font-family: 'chantal';
+  font-family: 'Gochi Hand';
   color: white;
   width: 100%;
 }
@@ -240,9 +261,8 @@
 }
 
 #Bio-Container .bio p.header {
-  font-family: 'chantal';
+  font-family: 'Gochi Hand';
   font-size: 30px;
-  letter-spacing: -2px;
   margin: 0px;
 }
 
@@ -252,32 +272,31 @@
   font-weight: bolder;
 }
 
-#PageFaq {
+#FAQ {
   background-color: rgb(250, 181, 198);
   justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
 }
 
-#PageFaq p.title {
+#FAQ p.title {
   text-align: center;
   margin: 0px 0px 20px 0px;
   font-size: 36px;
-  letter-spacing: -2px;
-  font-family: 'chantal';
+  font-family: 'Gochi Hand';
   flex-basis: 100%;
 }
 
-#PageFaq .faq-container {
+#FAQ .faq-container {
   max-width: 450px;
   text-align: center;
+  margin: 0px 4px;
 }
 
-#PageFaq .header {
+#FAQ .header {
   display: inline-block;
-  font-family: 'chantal';
+  font-family: 'Gochi Hand';
   font-size: 16px;
-  letter-spacing: -0.1rem;
   padding: 4px;
   background-color: rgb(131, 117, 171);
   width: calc(100% - 8px);
