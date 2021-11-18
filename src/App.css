@@ -202,23 +202,16 @@ html {
 
 #About {
   background-color: blanchedalmond;
-  padding-bottom: 12vw;
-  position: relative;
+  padding-bottom: 32px;
 }
 
-#Page1-2 {
-  position: absolute;
-  bottom: -7vw;
-  background-image: url('./assets/collection.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position-x: center;
-  width: 90%;
-  height: 14vw;
+.devider {
+  display: grid;
+  width: 100%;
 }
 
 #Pigsville {
-  padding-top: 12vw;
+  padding-top: 32px;
   background-color: rgb(196, 173, 153);
 }
 

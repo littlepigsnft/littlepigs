@@ -9,6 +9,7 @@ import Logo from './assets/littlepigs_logo.svg';
 import Twitter from './assets/twitter.svg';
 import Discord from './assets/discord.svg';
 import Preview from './assets/PIGS_320x320.gif';
+import Devider from './assets/collection.png';
 import ImagePage1 from './assets/page1.png';
 import ImagePage2 from './assets/page2.png';
 import ImagePage3 from './assets/rarities_image.jpg';
@@ -185,7 +186,9 @@ class App extends Component {
               contact lens’ too
             </p>
           </div>
-          <div id="Page1-2" />
+        </div>
+        <div className="devider">
+          <img src={Devider} alt="" width="100%" />
         </div>
         <div className="page page-even" id="Pigsville">
           <div className="flex-half-text">
