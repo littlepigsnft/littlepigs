@@ -23,6 +23,10 @@ const Navbar = () => {
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
+
+    return function cleanup() {
+      window.removeEventListener('scroll', handleScroll);
+    };
   });
 
   let navbarClasses = ['navbar'];
@@ -62,6 +66,9 @@ const Navbar = () => {
           </li>
           <li>
             <a href="#FAQ">FAQ</a>
+          </li>
+          <li>
+            <a href="#Roadmap">Roadmap</a>
           </li>
         </ul>
       </nav>

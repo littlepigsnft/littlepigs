@@ -3,6 +3,8 @@ import './App.css';
 import Web3 from 'web3';
 import Web3Modal from 'web3modal';
 import WalletConnectProvider from '@walletconnect/web3-provider';
+import LittlePigsABI from './abi/littlepigs.json';
+
 import Navbar from './components/navbar/navbar';
 
 import Logo from './assets/littlepigs_logo.svg';
@@ -20,11 +22,7 @@ import ImageTeam4 from './assets/team4.png';
 import ImageTeam5 from './assets/team5.png';
 
 const INITIAL_STATE = {
-  address: '',
-  web3: null,
-  provider: null,
   connected: false,
-  chainId: 1,
 };
 
 class App extends Component {
@@ -36,6 +34,13 @@ class App extends Component {
       ...INITIAL_STATE,
     };
 
+    this.address = '';
+    this.web3 = undefined;
+    this.provider = undefined;
+    this.contract = undefined;
+    this.networkName = 'Ethereum';
+    this.chainId = 1;
+
     this.web3Modal = new Web3Modal({
       cacheProvider: true,
       providerOptions: this.getProviderOptions(),
@@ -43,7 +48,7 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    //await this.setup();
+    await this.setup();
     this._setRemaining();
     setInterval(() => {
       this._setRemaining();
@@ -69,14 +74,16 @@ class App extends Component {
 
     provider.on('chainChanged', async (chainId) => {
       const chainIdInt = parseInt(chainId);
-      if (this.state.chainId !== chainIdInt) {
-        this.setState({ chainId: chainIdInt });
+      if (this.chainId !== chainIdInt) {
+        this.chainId = chainIdInt;
+        this.setup();
         console.log('Network changed: ', chainIdInt);
       }
     });
   };
 
   getProviderOptions = () => {
+    console.log(process.env.REACT_APP_INFURA_ID);
     const providerOptions = {
       walletconnect: {
         package: WalletConnectProvider,
@@ -89,25 +96,49 @@ class App extends Component {
   };
 
   setup = async () => {
-    const provider = await this.web3Modal.connect();
-    await this.subscribeProvider(provider);
+    this.resetApp(false);
 
-    const web3 = new Web3(provider);
-    const accounts = await web3.eth.getAccounts();
-    const address = accounts[0];
-    const chainId = await web3.eth.getChainId();
+    this.provider = await this.web3Modal.connect();
+    await this.subscribeProvider(this.provider);
 
-    console.log('Connected: ', chainId);
+    this.web3 = new Web3(this.provider);
+    this.accounts = await this.web3.eth.getAccounts();
+    this.address = this.accounts[0];
+    this.chainId = await this.web3.eth.getChainId();
+
+    console.log('Connected: ', this.chainId);
+
+    this.contract = undefined;
+    if (this.chainId === 4) {
+      this.networkName = 'Rinkeby';
+      this.contract = new this.web3.eth.Contract(
+        LittlePigsABI,
+        '0x1f1cc38324bb4bf0b66772ec673201f57688897e'
+      );
+    }
+    if (this.contract) {
+      const total = await this.contract.methods.totalSupply().call();
+      console.log(total);
+    }
 
     this.setState({
-      web3,
-      provider,
       connected: true,
-      address,
-      chainId,
-      selIndex: -1,
     });
   };
+
+  _shortAddress() {
+    const { connected } = this.state;
+    return connected
+      ? this.contract
+        ? this.address.substring(0, 6) +
+          '...' +
+          this.address.substring(this.address.length - 4, this.address.length) +
+          ' (' +
+          this.networkName +
+          ')'
+        : 'INVALID NETWORK'
+      : 'CONNECT WALLET';
+  }
 
   resetApp = async (clearCache) => {
     const { provider, web3 } = this.state;
@@ -115,6 +146,11 @@ class App extends Component {
     if (web3 && web3.currentProvider && web3.currentProvider.close) {
       await web3.currentProvider.close();
     }
+    this.contract = undefined;
+    this.web3 = undefined;
+    this.provider = undefined;
+    this.address = '';
+
     if (clearCache) {
       this.web3Modal.clearCachedProvider();
     }
@@ -143,6 +179,11 @@ class App extends Component {
         .padStart(2, '0')} HOURS ${minutes.toString().padStart(2, '0')} OINKS`;
   };
 
+  _toggleConnect = () => {
+    if (this.state.connected) this.resetApp(true);
+    else this.setup();
+  };
+
   render() {
     return (
       <>
@@ -155,6 +196,13 @@ class App extends Component {
                 10,000 porkers from Pigsville ready to blow the ETH blockchain
                 down.
               </p>
+              <div
+                className="app-btn social-btn"
+                id="Connect-Button"
+                onClick={() => this._toggleConnect()}
+              >
+                {this._shortAddress()}
+              </div>
               <div className="app-btn" id="Social-Counter" ref={this.timerRef}>
                 12 DAYS 00 HOURS 00 OINKS
               </div>
@@ -351,6 +399,123 @@ class App extends Component {
               have this in their vocab. They just know WAGMI and IGMI, and that
               big bad wolf is done for. In fact there's rumours he's on the "if
               you can't beat them join them" train. Stay tuned!!
+            </p>
+          </div>
+        </div>
+        <div className="page" id="Roadmap">
+          <p className="title">Where the roads are paved in bacon...</p>
+          <div className="roadmap-container">
+            <span className="header">Pigsville opening</span>
+            <p>
+              Pigsville is large. On an island, with a population of 10,000, our
+              city planners need to carefully deliberate the layout of our pig
+              pen.
+            </p>
+            <p>
+              Being pigs, we prefer dirt. Sure, we may have built a house from
+              brick, but dirt roads allow us to make changes easier. The
+              construction of this road is one that requires the help of all our
+              piglets. It’s important to use the Town Hall channel in discord to
+              cast your vote during city planning proposals.
+            </p>
+            <p>
+              Pigsville pigs will be available for adoption on December 1, 2021,
+              12:00pm PST. Please note that our adoption agency has pre-screened
+              and whitelisted some families that we deemed fit for adopting.
+              These families will be able to purchase our little ones on
+              December 1, 2021, 11:00am PST.
+            </p>
+            <p>
+              A gentle reminder that our roads are constructed of dirt; should
+              all pigs find homes faster than expected, we may need to
+              reconstruct and widen the road to fit all newcomers. This means
+              that some proposals will be given a scheduled date as opposed to
+              waiting to fill an adoption percentage.
+            </p>
+            <span className="header">Gas & Fees</span>
+            <p>
+              December 1, Pigsville opens to the public. You may fly here direct
+              and adopt your pig. Should you choose the slower route, by boat,
+              Opensea is where you’ll want to look to adopt.
+            </p>
+            <p>
+              Adoptions on Opensea come with a 5% royalty. These royalties will
+              be sent directly here{' '}
+              <code>
+                <a
+                  href="https://etherscan.io/address/0x0C3590ee39e4F305C4227BBE9768679aFcC63203"
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  0x0C35....3203
+                </a>
+              </code>
+              . Royalties will be used to fund our community DAO and $BACON
+              rewards. More detailed information on the community DAO and
+              $BACON, below.
+            </p>
+            <p>
+              Ethereum is the gas you’ll need to get to Pigsville Island. Being
+              travellers ourselves, we use gas on this island to make everyday
+              purchases, like ham. Our mayor, BigPig, periodically gives away
+              Ethereum to members in our community as a thanks. He already
+              mentioned at the previous town meeting that ethereum giveaways
+              will be based upon our piglets finding homes and will go as
+              follows:
+              <br />
+              10% of pigs finding a home - 1 Eth giveaway
+              <br />
+              25% - 3 Eth giveaway
+              <br />
+              50% - 5 Eth giveaway
+              <br />
+              75% - 7 Eth giveaway
+              <br />
+              100% - 10 Eth giveaway
+            </p>
+          </div>
+          <div className="roadmap-container">
+            <span className="header">Bad wolves & little pigs</span>
+            <p>
+              Pigs have been at odds with wolves for our entire existence. The
+              neighbouring island, Wolvesville, presented a truce between our
+              lands and theirs. In exchange for $bacon, they’ve been blowing our
+              windmills. Energy doesn’t get more renewable than that. These
+              wolves have come as far to even seduce some of our pigs
+              romantically. There may come a day where the Pigs of Pigsville and
+              the Wolves of Wolvesville come together, in matrimony and in
+              Metamask wallets. Holders of Pigs will be granted whitelist status
+              for wolves. More specifics on this proposal will be announced in
+              Q1, 2022. It’s important for us to vote on this before allowing
+              wolves in the pen.
+            </p>
+            <span className="header">Threads for $BACON</span>
+            <p>
+              We pigs are civilized beings. underwear may not be something we
+              wear off the island, when vacationing with humans, but here it’s
+              required. Hats and shirts are just a few items we wear. These
+              items will become available for purchase at Pigs & Fitch, found
+              later on our site. Be aware that their shop is still under
+              construction. They’ve advised us that completion will be sometime
+              around Q2, 2022 or when demand for clothes becomes urgent (50%
+              adoption rate of pigs). They accept Ethereum and $BACON as payment
+              for clothing. More on $BACON, below.
+            </p>
+            <span className="header">To DAO or not to DAO ...</span>
+            <p>
+              Community is big here in Pigsville. We share everything, even the
+              cores of our apples. Our community DAO will be equally owned by
+              all pig holders. Should all pigs find adoption, then each pig
+              represents .1% of the DAO.
+            </p>
+            <span className="header">Bring home the $BACON</span>
+            <p>
+              $BACON isn’t as bad as it sounds. We aren’t asking you to eat your
+              own, I promise. As mentioned earlier, we use $BACON to barter with
+              the wolves and run our economy - and make our island smell great.
+              Earn $BACON by depositing your pig into slaughter school. Here
+              your pig will sit comfortably and earn you that beautiful $BACON
+              you can use to get around in Pigsville.
             </p>
           </div>
         </div>
